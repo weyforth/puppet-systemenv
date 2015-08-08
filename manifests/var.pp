@@ -16,10 +16,10 @@ define systemenv::var (
 
   validate_absolute_path($target)
 
-  $quote_str = ""
-
   if $quotes == false {
     $quote_str = "\'" 
+  } else {
+    $quote_str = ""
   }
 
   ini_setting { "${target} ${varname}=${value}":
