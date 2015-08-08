@@ -16,7 +16,7 @@ define systemenv::var (
 
   validate_absolute_path($target)
 
-  if $quotes == false {
+  if $quotes == true {
     $quote_str = "\'" 
   } else {
     $quote_str = ""
