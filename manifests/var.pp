@@ -7,7 +7,6 @@ define systemenv::var (
 
   validate_re($ensure, '^present|absent$')
   validate_re($varname, '^[a-zA-Z][a-zA-Z0-9_]+')
-  validate_re($value, '(^\'.*\'$)|(^\"\.*\"$)')
   
   $target = $systemenv::params::default_env_settings_file
   validate_absolute_path($target)
@@ -17,7 +16,7 @@ define systemenv::var (
     path => $target,
     section => '',
     setting => $varname,
-    value => $value,
+    value => "\'${value}\'",
     key_val_separator => '=',
   }
 }
